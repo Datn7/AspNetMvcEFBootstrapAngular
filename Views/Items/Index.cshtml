@@ -1,0 +1,49 @@
+﻿@model IEnumerable<AspNetMvcEFBootstrapAngular.Data.Entities.Item>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>ნაშების სია</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">ახლის დამატება</a>
+</p>
+
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+    <div class="col-md-4">
+        <div class="card text-center">
+            <div>
+                <span><b>სახელი: </b></span>
+                @Html.DisplayFor(modelItem => item.BitchName)
+            </div>
+            <div>
+                <span><b>ტელ. ნომერი: </b></span>
+                @Html.DisplayFor(modelItem => item.Number)
+            </div>
+            <div>
+                <span><b>ძუძუები: </b></span>
+                @Html.DisplayFor(modelItem => item.TiTDescription)
+            </div>
+            <div>
+                <img src="~/images/@item.ProfilePicture" width="200" height="300" />
+            </div>
+            <div>
+                <div>
+                    <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@item.Id">ცვლილება</a> |
+                    <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.Id">დეტალურად</a> |
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id">წაშლა</a>
+                </div>
+            </div>
+        </div>
+    </div>
+            }
+
+      
+
+
+    </div>
